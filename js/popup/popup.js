@@ -27,6 +27,9 @@ function disableEnable() {
     var box = document.getElementById("power");
     if(box.checked == true){
         document.getElementById("reminders").disabled=false;
+        if(!document.getElementById("reminders").value){
+            document.getElementById("reminders").value = 10;
+        }
     }
     else{
         document.getElementById("reminders").disabled=true;
