@@ -1,4 +1,6 @@
-var timeIntervals, power;
+var reminders = document.getElementById("reminders");
+var power = document.getElementById("power");
+var submit = document.getElementById("submit");
 
 if(document.readyState === 'loading') {
     document.addEventListener('DOMContentLoaded',restoreState);
@@ -6,43 +8,36 @@ if(document.readyState === 'loading') {
     restoreState;
 }
 
-var pow = document.getElementById("power");
-if(pow){
+if(power){
     addEventListener('click', disableEnable);
 }
 
-var sub = document.getElementById("sub");
-if(sub){
+if(submit){
     addEventListener('submit', setAlarm);
 }
 
 function checkPower(){
-    if(document.getElementById("power").checked == true)
-        return true;
-    else
-        return false;
+    power.checked? true : false;
 }
 
 function disableEnable() {
-    var box = document.getElementById("power");
-    if(box.checked == true){
-        document.getElementById("reminders").disabled=false;
-        if(!document.getElementById("reminders").value){
-            document.getElementById("reminders").value = 10;
+    if(power.checked){
+        reminders.disabled=false;
+        if(!reminders.value){
+            reminders.value = 10;
         }
     }
     else{
-        document.getElementById("reminders").disabled=true;
+        reminders.disabled=true;
     }
 }
 
 function setAlarm(e){
     e.preventDefault();
-    let power = checkPower();
-    if(power == true){
+    if(checkPower()){
         chrome.browserAction.setBadgeText({text: 'ON'});
         chrome.browserAction.setBadgeBackgroundColor({color: '#fbbf9e'});
-        let interval = parseInt(document.getElementById("reminders").value);
+        let interval = parseInt(reminders.value);
         chrome.alarms.create({delayInMinutes: interval, periodInMinutes: interval});
         saveState();
     }
@@ -54,18 +49,16 @@ function setAlarm(e){
 }
 
 function restoreState(){
-    chrome.storage.local.get("P",function(data){
-        document.getElementById('power').checked = data.P;
+    chrome.storage.local.get("P",function(res){
+        power.checked = res.P;
     });
     chrome.storage.local.get("TI",function(res){
-        document.getElementById('reminders').value = res.TI;
+        reminders.value = res.TI;
         disableEnable();
     });
 }
 
 function saveState(){
-    power = document.getElementById('power').checked;
-    chrome.storage.local.set({"P": power});
-    timeIntervals = document.getElementById('reminders').value;
-    chrome.storage.local.set({"TI": timeIntervals});
+    chrome.storage.local.set({"P": power.checked});
+    chrome.storage.local.set({"TI": reminders.value});
 }
