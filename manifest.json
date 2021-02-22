@@ -1,0 +1,27 @@
+{
+    "manifest_version": 2,
+    "name": "Straight Up — Posture Reminder",
+    "version": "1.1",
+    "description": "Set recurring reminders to fix your posture.",
+    "browser_action":{
+        "default_icon": {
+            "16": "media/spine16.png",
+            "24": "media/spine24.png",
+            "32": "media/spine32.png"
+        },
+        "default_title": "Straight Up",
+        "default_popup": "js/popup/popup.html"
+    },
+    "background": {
+        "scripts": ["js/bg/background.js"]
+    },
+    "permissions": ["alarms", "storage"],
+    "options_ui": {
+        "chrome_style": true,
+        "page": "js/popup/popup.html"
+    },
+    "icons": { 
+        "16": "media/spine16.png",
+       "128": "media/spine128.png" 
+    }
+}

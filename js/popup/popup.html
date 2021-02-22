@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Sturdy Spine</title>
+        <link rel="stylesheet" href="/css/style.css">
+
+    </head>
+
+    <body>
+        <form>
+            <center>Reminders on? </center><br>
+
+            <div class="container">
+                <label for="switch">Off  </label>
+                <label class="switch">
+                    <input name= "checkbox" type="checkbox" id="power"/> 
+                    <div></div>
+                </label><label for="switch">   On</label>
+            </div>
+
+            <label for="reminders">Choose reminder intervals:</label>
+                <select id="reminders" name="reminders" disabled>
+                <option value="10">every 10 minutes</option>
+                <option value="15">every 15 minutes</option>
+                <option value="30">every 30 minutes</option>
+                <option value="60">every 1 hour</option>
+                <option value="90">every 90 minutes</option>
+                <option value="120">every 2 hours</option>
+                </select>
+                <br>
+                <br>
+                <input type="submit" value="Save settings" id="sub">
+        </form>
+        <script type="text/javascript" src="popup.js"></script>
+    </body>
+</html>
