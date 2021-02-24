@@ -17,7 +17,7 @@ if(submit){
 }
 
 function checkPower(){
-    power.checked? true : false;
+    return (power.checked? true : false);
 }
 
 function disableEnable() {
