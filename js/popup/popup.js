@@ -1,12 +1,12 @@
-var reminders = document.getElementById("reminders");
-var power = document.getElementById("power");
-var submit = document.getElementById("submit");
-
 if(document.readyState === 'loading') {
     document.addEventListener('DOMContentLoaded',restoreState);
 } else {
     restoreState;
 }
+
+var reminders = document.getElementById("reminders");
+var power = document.getElementById("power");
+var submit = document.getElementById("submit");
 
 if(power){
     addEventListener('click', disableEnable);
@@ -35,15 +35,16 @@ function disableEnable() {
 function setAlarm(e){
     e.preventDefault();
     if(checkPower()){
+        chrome.alarms.clearAll();
+        let interval = parseInt(reminders.value);
+        chrome.alarms.create({periodInMinutes: interval});
         chrome.browserAction.setBadgeText({text: 'ON'});
         chrome.browserAction.setBadgeBackgroundColor({color: '#fbbf9e'});
-        let interval = parseInt(reminders.value);
-        chrome.alarms.create({delayInMinutes: interval, periodInMinutes: interval});
         saveState();
     }
     else{
-        chrome.browserAction.setBadgeText({text: ''});
         chrome.alarms.clearAll();
+        chrome.browserAction.setBadgeText({text: ''});
         saveState();
     }
 }

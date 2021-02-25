@@ -16,5 +16,11 @@ var phrases = [
 
 chrome.alarms.onAlarm.addListener((alarm) => {
     var phrase = phrases[Math.floor(Math.random() * phrases.length)];
-    alert(phrase);
+    chrome.notifications.create('', {
+        title: 'Straight Up: Posture Reminder',
+        message: phrase,
+        iconUrl: '../../media/spine128.png',
+        requireInteraction: true,
+        type: 'basic'
+    });
 });

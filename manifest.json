@@ -15,7 +15,7 @@
     "background": {
         "scripts": ["js/bg/background.js"]
     },
-    "permissions": ["alarms", "storage"],
+    "permissions": ["alarms", "storage", "notifications"],
     "options_ui": {
         "chrome_style": true,
         "page": "js/popup/popup.html"
