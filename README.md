@@ -16,7 +16,8 @@ A Google Chrome extension to set recurring reminders to fix your posture. Built 
 ## License
 Released under the MIT License. See `LICENSE` for more information.
 
-## Acknowledgements
+## Acknowledgments
 * [Chrome Alarms API](https://developer.chrome.com/docs/extensions/reference/alarms/)
 * [Chrome Notifications API](https://developer.chrome.com/docs/extensions/reference/notifications/)
 * [Codepen](https://codepen.io/wilsonpage/pen/cxKEs)
+* [Demo Timer](https://pomofocus.io/)

@@ -16,10 +16,6 @@ if(submit){
     addEventListener('submit', setAlarm);
 }
 
-function checkPower(){
-    return (power.checked? true : false);
-}
-
 function disableEnable() {
     if(power.checked){
         reminders.disabled=false;
@@ -34,7 +30,7 @@ function disableEnable() {
 
 function setAlarm(e){
     e.preventDefault();
-    if(checkPower()){
+    if(power.checked){
         chrome.alarms.clearAll();
         let interval = parseInt(reminders.value);
         chrome.alarms.create({periodInMinutes: interval});
