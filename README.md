@@ -1,6 +1,8 @@
 ![logo](media/straightup.png)
 # Straight Up: Posture Reminder
-A Google Chrome extension to set recurring reminders to fix your posture. Built with Javascript, HTML/CSS, Chrome Alarms API and Chrome Notifications API.
+A Google Chrome extension to set recurring reminders to fix your posture. 
+
+Built with Javascript, HTML/CSS, Chrome Alarms API and Chrome Notifications API.
 
 ## Demo
 ![demo gif](media/demo.gif)
